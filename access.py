@@ -60,7 +60,7 @@ def caveAttack(template):
     time.sleep(5)
     caveAttackExt(template)
     time.sleep(2)
-    while driver.find_element(By.ID,"armyCapacity").get_attribute('textContent') == 0:
+    while  driver.find_element(By.ID,"armyCapacity").text == "0":
         driver.execute_script("javascript:void(container.close({saveName: 'operation-center', cancelCallback: true, flow: true, closedWith: 'click'}))")
         time.sleep(3)
         caveAttackExt(template)
@@ -69,5 +69,4 @@ def caveAttack(template):
         driver.find_element(By.XPATH,"//button[@value='"+attType[0]+"']").click()
     except:
         driver.find_element(By.XPATH,"//button[@value='"+attType[1]+"']").click()
-    #driver.find_element(By.XPATH,"//button[@value='Field battle']").click()
     telConnect("Cave Attack Launched!")
